@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Button from './components/Button'
+// import { useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // const [loggedIn, setLoggedIn] = useState(false)
 
   return (
     <>
-      <main className='bg-gray-800 text-white'>
-        <h1>This is the New Begining</h1>
+      <main className='bg-gray-800 text-white h-screen w-full'>
+        <div className='pt-8 pl-8'>
+          <h1>Simple button component with prop containing type inference</h1>
+          <Button content = 'click me' />
+        </div>
       </main>
     </>
   )
