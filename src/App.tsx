@@ -1,10 +1,11 @@
 import './App.css'
 import Button from './components/Button'
-// import { useState } from 'react'
+import { useState } from 'react'
 
 function App() {
 
-  // const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState<string | null>(null)
+  setLoggedIn('srikar')
 
   return (
     <>
@@ -12,6 +13,7 @@ function App() {
         <div className='pt-8 pl-8'>
           <h1>Simple button component with prop containing type inference</h1>
           <Button content = 'click me' />
+          {loggedIn ? null : null}
         </div>
       </main>
     </>
