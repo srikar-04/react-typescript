@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { type ButtonColor } from '../lib/types'
-import ColorButton from './ColorButton'
+import ColorButton from '../components/ColorButton'
 
 function BgChanger() {
 
