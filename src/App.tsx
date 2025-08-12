@@ -1,21 +1,47 @@
 import './App.css'
-import Button from './components/Button'
+// import Button from './components/Button'
 import { useState } from 'react'
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = useState<string | null>(null)
-  setLoggedIn('srikar')
+
+  const [color, setColor] = useState('gray')
 
   return (
     <>
-      <main className='bg-gray-800 text-white h-screen w-full'>
-        <div className='pt-8 pl-8'>
-          <h1>Simple button component with prop containing type inference</h1>
-          <Button content = 'click me' />
-          {loggedIn ? null : null}
+      <div 
+        style={{
+          backgroundColor: color
+        }}
+        className='w-full h-screen flex justify-center items-end py-10 px-5'
+      >
+        <div className='w-full h-fit p-4 border bg-white rounded-2xl flex items-center justify-between text-white'>
+          <button 
+            className='cursor-pointer bg-blue-500 text-white py-2 px-4 rounded-md' 
+            onClick={() => setColor(() => 'blue')}
+          >
+            blue
+          </button>
+          <button 
+            className='cursor-pointer bg-red-500 text-white py-2 px-4 rounded-md' 
+            onClick={() => setColor(() => 'red')}
+          >
+            red
+          </button>
+          <button 
+            className='cursor-pointer bg-yellow-500 text-white py-2 px-4 rounded-md' 
+            onClick={() => setColor(() => 'yellow')}
+          >
+            yellow
+          </button>
+          <button 
+            className='cursor-pointer bg-orange-500 text-white py-2 px-4 rounded-md' 
+            onClick={() => setColor(() => 'orange')}
+          >
+            orange
+          </button>
         </div>
-      </main>
+      </div>
     </>
   )
 }
