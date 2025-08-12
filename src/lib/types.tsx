@@ -1,3 +1,1 @@
-export type ButtonColor = {
-    color: 'blue' | 'green' | 'yellow' | 'red'
-}
+export type ButtonColor = 'blue' | 'green' | 'yellow' | 'red'
