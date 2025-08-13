@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 function PasswordGenerator() {
 
@@ -8,7 +8,7 @@ function PasswordGenerator() {
     const [isNumAllowed, setIsNumAllowed] = useState<boolean>(false)
     const [randomPassword, setRandomPassword] = useState<string | null>(null)
 
-    function randomPasswordGenerator() {
+    const randomPasswordGenerator = useCallback(() => {
         let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
         let numbers = '0123456789'
         let specialSymbols = '!@#$%^&*(){}\|?:";'
@@ -25,7 +25,7 @@ function PasswordGenerator() {
         }
 
         setRandomPassword(() => password)
-    }
+    }, [length, isNumAllowed, isSymbolAllowed, setRandomPassword])
 
     useEffect(() => {
         randomPasswordGenerator()
