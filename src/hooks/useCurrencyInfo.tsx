@@ -5,6 +5,7 @@ function useCurrencyInfo<Base extends string>(currency: Base) {
 
     const [data, setData] = useState<Price>({})
   
+    // can wrap this inside async await for better readability
     const currencyInfo = useCallback(() => {
         const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`
         fetch(url)
@@ -13,6 +14,7 @@ function useCurrencyInfo<Base extends string>(currency: Base) {
             // console.log(`BASE CURRENCY:`, res[currency])
             setData(() => res[currency])
         })
+        .catch((e) => {console.error('Failed fetching data :',e)})
     }, [currency])
 
     useEffect( () => {

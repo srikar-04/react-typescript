@@ -7,7 +7,7 @@ function CurrencyInput({
   currencyList,
   onCurrencyChange,
   onAmountChange,
-  defaultValue
+  value
 }: TCurrencyInput) {
   return (
     <>
@@ -20,16 +20,12 @@ function CurrencyInput({
                 <input 
                     type='number' 
                     value={currencyValue} 
-                    onChange={(e) => {
-                            if(onAmountChange) {
-                                onAmountChange(Number(e.target.value))
-                            }
-                        }
+                    onChange={(e) => onAmountChange && onAmountChange(Number(e.target.value))
                     }
                 />
                 <select 
                     className='cursor-pointer' 
-                    value={defaultValue}
+                    value={value}
                     onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
                 >
                     {

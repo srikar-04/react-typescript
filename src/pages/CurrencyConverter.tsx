@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useMemo, useState } from 'react'
 import useCurrencyInfo from '../hooks/useCurrencyInfo'
 import CurrencyInput from '../components/CurrencyInput';
 
@@ -6,18 +6,13 @@ function CurrencyConverter() {
 
   const [fromCurrency, setFromCurrency] = useState<string>('usd')
   const [toCurrency, setToCurrency] = useState<string>('inr')
-  const [currencyList, setCurrencyList] = useState<string[]>([])
   const [fromCurrencyValue, setFromCurrencyValue] = useState<number>(0)
   const [toCurrencyValue, setToCurrencyValue] = useState<number>(0)
 
   const data = useCurrencyInfo(fromCurrency)
   // console.log(`THIS IS THE ACTUAL DATA :`, data);
 
-  const keys = Object.keys(data)
-
-  useEffect( () => {
-    if(keys && keys.length > 0) setCurrencyList(keys)
-  }, [data])
+  const currencyList = useMemo(() => Object.keys(data), [data])
 
   const convertCurrency = () => {
     const finalAmount = fromCurrencyValue*data[toCurrency]
@@ -37,14 +32,14 @@ function CurrencyConverter() {
           onAmountChange={(amount) => {
             setFromCurrencyValue(amount)
           }}
-          defaultValue={fromCurrency}
+          value={fromCurrency}
         />
         <CurrencyInput 
           label='To'
           currencyList={currencyList}
           currencyValue={toCurrencyValue}
           onCurrencyChange={(currency: string) => setToCurrency(currency) }
-          defaultValue={toCurrency}
+          value={toCurrency}
         />
         <button onClick={convertCurrency} className='bg-blue-900 p-3 rounded-md text-white cursor-pointer'>
           Convert {fromCurrency} to {toCurrency}

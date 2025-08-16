@@ -17,5 +17,5 @@ export type TCurrencyInput = {
     currencyList: string[],
     onCurrencyChange(currency: string): void
     onAmountChange?(amount: number): void
-    defaultValue: string
+    value: string
 }
