@@ -1,18 +1,27 @@
-import React, { useCallback, useState } from 'react'
-import { type CurrencyType } from '../lib/types'
+import React, { useCallback, useEffect, useState } from 'react'
+import { type Price, type Currency } from '../lib/types'
 
-function useCurrencyInfo(currency: string) {
+function useCurrencyInfo<Base extends string>(currency: Base) {
 
-    const [data, setData] = useState<CurrencyType>({})
+    const [data, setData] = useState<Price>({})
   
     const currencyInfo = useCallback(() => {
         const url = `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${currency}.json`
         fetch(url)
-        .then( res => res.json())
-        .then(res => setData(res[currency]))
-    }, [])
+        .then((res) => res.json())
+        .then((res: Currency<Base>) => {
+            // console.log(`BASE CURRENCY:`, res[currency])
+            setData(() => res[currency])
+        })
+    }, [currency])
 
-    useCallback( currencyInfo, [])
+    useEffect( () => {
+        currencyInfo()
+    }, [currencyInfo])
+
+    // console.log(data)
+
+    return data
 }
 
 export default useCurrencyInfo
