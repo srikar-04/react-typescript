@@ -4,10 +4,6 @@ export interface Price {
     [currency: string]: number
 };
 
-// export interface Currency<Base extends string> {
-//     // date: string;
-//     // [k in Base]: Price;
-// };
 
 export type Currency<Base extends string> = {
     date: string;
@@ -15,3 +11,11 @@ export type Currency<Base extends string> = {
     [k in Base]: Price
 }
 
+export type TCurrencyInput = {
+    label: 'From' | "To",
+    currencyValue: number,
+    currencyList: string[],
+    onCurrencyChange(currency: string): void
+    onAmountChange?(amount: number): void
+    defaultValue: string
+}
