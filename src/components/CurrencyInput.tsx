@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { type TCurrencyInput } from '../lib/types'
 
 function CurrencyInput({

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { type Price, type Currency } from '../lib/types'
 
 function useCurrencyInfo<Base extends string>(currency: Base) {
