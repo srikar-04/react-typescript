@@ -10,7 +10,7 @@ function CurrencyConverter() {
   const [fromCurrencyValue, setFromCurrencyValue] = useState<number>(0)
   const [toCurrencyValue, setToCurrencyValue] = useState<number>(0)
 
-  const data = useCurrencyInfo('usd')
+  const data = useCurrencyInfo(fromCurrency)
   // console.log(`THIS IS THE ACTUAL DATA :`, data);
 
   const keys = Object.keys(data)
