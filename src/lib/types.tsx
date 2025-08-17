@@ -19,3 +19,10 @@ export type TCurrencyInput = {
     onAmountChange?(amount: number): void
     value: string
 }
+
+export type Contact = {
+    readonly id: string,
+    name: string
+    email?: string,
+    number?: number
+}
