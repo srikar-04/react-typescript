@@ -1,3 +1,5 @@
+import React from "react";
+
 export type ButtonColor = 'blue' | 'green' | 'yellow' | 'red'
 
 export interface Price {
@@ -30,4 +32,14 @@ export type Contact = {
 export type ActionResponse = {
     success: boolean,
     msg: string
+}
+
+export type User = {
+    name: string,
+    email: string
+}
+
+export type UserContextType = {
+    user: User | null,
+    setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
