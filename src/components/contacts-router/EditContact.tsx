@@ -1,5 +1,5 @@
-import { Form, useLoaderData, useParams, type Params } from "react-router"
-import { updateContact, getContact } from "../../lib/api"
+import { Form, useLoaderData, type Params } from "react-router"
+import { getContact } from "../../lib/api"
 import type { Contact } from "../../lib/types"
 
 function EditContact() {
