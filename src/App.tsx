@@ -3,6 +3,7 @@ import './App.css'
 import BgChanger from './pages/BgChanger'
 import CurrencyConverter from './pages/CurrencyConverter'
 import PasswordGenerator from './pages/PasswordGenerator'
+import ReactRouter from './pages/ReactRouter'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <BgChanger />
       <PasswordGenerator />
       <CurrencyConverter />
+      <ReactRouter />
     </>
   )
 }
