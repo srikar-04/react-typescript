@@ -26,3 +26,8 @@ export type Contact = {
     email?: string,
     number?: number
 }
+
+export type ActionResponse = {
+    success: boolean,
+    msg: string
+}
