@@ -13,10 +13,10 @@ function ReactRouter() {
             path: "/",
             Component: RootLayout,
             children: [
-                {index: true, Component: ContactsList},  // show contacts list
-                {path: 'new', Component: CreateContact},    // creating new contact
-                {path: ':id', Component: ContactDetails},   // showing contact details
-                {path: ':id/edit', Component: EditContact},  // editing contact
+                {index: true, Component: ContactsList},  // loader -> show contacts
+                {path: 'new', Component: CreateContact}, // action -> create contact
+                {path: ':id', Component: ContactDetails}, // loader -> show specific contact
+                {path: ':id/edit', Component: EditContact},  // action -> editing contact
             ],
         }
     ])
