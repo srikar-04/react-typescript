@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
-import UserContext from '../Context/UserContext'
 import UserContextProvider from '../Context/UserContextProvider'
+import Login from '../components/context-components/Login'
+import Profile from '../components/context-components/Profile'
 
 function ContextApi() {
-    const context = useContext(UserContext)
   return (
     <UserContextProvider>
-        <div>{`this is the user ${context?.user}`}</div>
+        <Login />
+        <Profile />
     </UserContextProvider>
   )
 }
