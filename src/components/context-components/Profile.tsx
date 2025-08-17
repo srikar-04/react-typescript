@@ -10,6 +10,10 @@ function Profile() {
 
   const {user} = context
 
+  if(user && (!user.password || !user.username)) {
+    return <div className="p-8 flex flex-col items-center justify-center gap-6 bg-zinc-700 text-white">Both username and password are required</div>
+  }
+
   return (
     <div className="p-8 flex flex-col items-center justify-center gap-6 bg-zinc-700 text-white">
       <h1 className="font-semibold text-xl">{`username: ${ user ? user.username : 'usename to be entered'}`}</h1>
