@@ -11,6 +11,18 @@ function ContactsList() {
   return (
     <>
       <div>ContactsList</div>
+      <div>
+        {data.map((field) => {
+          return (
+            <div className='px-8 py-6 bg-pink-200 mb-3 text-lg rounded-xl'>
+              <div>{`id: ${field.id}`}</div>
+              <div>{`name: ${field.name}`}</div>
+              <div>{`email: ${field.email}`}</div>
+              <div>{`number: ${field.number}`}</div>
+            </div>
+          )
+        })}
+      </div>
       <div>{`This is the Contacts Length: ${data?.length}`}</div>
     </>
   )
