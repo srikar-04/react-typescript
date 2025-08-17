@@ -20,21 +20,30 @@ function Login() {
     }
 
   return (
-    <div>
-        <h2>Login Page</h2>
-        <input 
-            onChange={(e) => setUsername(e.target.value)} 
-            type="text"  
-            value={username}
-        />
+    <div className='flex flex-col gap-6 items-center justify-center mt-3 bg-zinc-700 p-8 text-white'>
+        <div>
+            <label htmlFor="name">Name : </label>
+            <input 
+                onChange={(e) => setUsername(e.target.value)} 
+                type="text"  
+                value={username}
+                placeholder='name'
+                className='text-white border-blue-500 border rounded-lg px-2'
+            />
+        </div>
 
-        <input 
-            onChange={(e) => setPassword(e.target.value)} 
-            type="text" 
-            value={password} 
-        />
+        <div>
+            <label htmlFor="password">Password : </label>
+            <input 
+                onChange={(e) => setPassword(e.target.value)} 
+                type="text" 
+                value={password} 
+                placeholder='password'
+                className='text-white border-blue-500 border rounded-lg px-2'
+            />
+        </div>
 
-        <button onClick={(e) => handleSumbit(e)}>Submit</button>
+        <button className='px-3 py-2 text-white font-semibold bg-blue-500 rounded-md cursor-pointer' onClick={(e) => handleSumbit(e)}>Submit</button>
     </div>
   )
 }
