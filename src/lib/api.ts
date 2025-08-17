@@ -13,6 +13,10 @@ export const getContacts = async (): Promise<Contact[]> => {
 }
 
 export const getContact = async (id: string): Promise<Contact> => {
+    console.log('this is the id that i am getting : ', id);
+
+    console.log('this is contact array before dearching : ', contacts)
+    
     const contact = contacts.find(contact => contact.id === id);
     if (!contact) {
         throw new Error('Contact not found');

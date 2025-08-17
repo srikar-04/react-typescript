@@ -2,8 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import RootLayout from "../components/contacts-router/RootLayout"
 import ContactsList, {loader as contactsLoader} from "../components/contacts-router/ContactsList"
 import CreateContact, {action as contactAction} from "../components/contacts-router/CreateContact"
-import EditContact from "../components/contacts-router/EditContact"
-import ContactDetails from "../components/contacts-router/ContactDetails"
+import EditContact, { loader as editLoader} from "../components/contacts-router/EditContact"
 
 function ReactRouter() {
 
@@ -25,8 +24,12 @@ function ReactRouter() {
                     Component: CreateContact,
                     action: ({request}) => contactAction(request)
                 }, // action -> create contact
-                {path: ':id', Component: ContactDetails}, // loader -> show specific contact
-                {path: ':id/edit', Component: EditContact},  // action -> editing contact
+                {
+                    path: ':id/edit',
+                    loader: ({params}) => editLoader(params),
+                    // action: ({request}) => editAction(request),
+                    Component: EditContact
+                },  // action -> editing contact
             ],
         }
     ])
