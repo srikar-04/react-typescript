@@ -1,4 +1,5 @@
 import React from "react";
+import {store} from "../store/store";
 
 export type ButtonColor = 'blue' | 'green' | 'yellow' | 'red'
 
@@ -43,3 +44,7 @@ export type UserContextType = {
     user: User | null,
     setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
