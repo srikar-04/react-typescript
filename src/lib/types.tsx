@@ -45,6 +45,10 @@ export type UserContextType = {
     setUser: React.Dispatch<React.SetStateAction<User | null>>;
 }
 
+// type for the whole centralized-store
 export type RootState = ReturnType<typeof store.getState>;
 
+// type for dispatch functions like useDispatch() 
 export type AppDispatch = typeof store.dispatch;
+
+export type TodoInitialState = {id: string, todo: string}[]
