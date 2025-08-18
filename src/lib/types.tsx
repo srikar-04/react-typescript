@@ -51,4 +51,4 @@ export type RootState = ReturnType<typeof store.getState>;
 // type for dispatch functions like useDispatch() 
 export type AppDispatch = typeof store.dispatch;
 
-export type TodoInitialState = {id: string, todo: string}[]
+export type TodoState = {id: string, todo: string}[]
