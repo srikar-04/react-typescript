@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux'
-import type { RootState } from '../lib/types'
+import type { RootState, TodoState } from '../lib/types'
 import { removeTodo } from './todoSlice'
+import { useEffect, useState } from 'react'
 
 function Todos() {
 
   const dispatch = useDispatch()
+
   const allTodos = useSelector((state: RootState) => state.todos)
+
+  if(!allTodos || allTodos.length == 0) return <div className='text-xl font-bold flex items-center justify-center my-6'>No Todos Present</div>
+
 
   return (
     <ul className=' flex flex-col items-center justify-center gap-6 my-4'>
