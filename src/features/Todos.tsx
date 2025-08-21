@@ -1,4 +1,3 @@
-import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import type { RootState } from '../lib/types'
 import { removeTodo } from './todoSlice'
@@ -9,14 +8,14 @@ function Todos() {
   const allTodos = useSelector((state: RootState) => state.todos)
 
   return (
-    <ul className=' flex flex-col items-center justify-center gap-6'>
+    <ul className=' flex flex-col items-center justify-center gap-6 my-4'>
       {allTodos.map(todo => (
         <li 
           key={todo.id}
           className='flex items-center justify-center gap-3'
         >
-          <div>{todo.todo}</div>
-          <button onClick={() => dispatch(removeTodo({id: todo.id}))} className='px-2 py-1 font-medium'>Delete</button>
+          <div className='px-9 py-1 text-xl text-white bg-zinc-600 w-full'>{todo.todo}</div>
+          <button onClick={() => dispatch(removeTodo({id: todo.id}))} className='px-2 py-1 font-medium bg-red-500 text-white rounded-md cursor-pointer'>Delete</button>
         </li>
       ))}
     </ul>

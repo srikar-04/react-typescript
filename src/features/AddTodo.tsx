@@ -17,12 +17,12 @@ function AddTodo() {
     <form 
         action="submit" 
         onSubmit={(e) => handleSubmit(e)}
-        className='flex gap-4 items-center justify-center'
+        className='flex gap-4 items-center justify-center mt-6'
     >
-        <div>
+        <div className='border border-blue-900 rounded-md'>
             <input value={todo} onChange={(e) => setTodo(e.target.value)} type="text" />
         </div>
-        <button className='px-2 py-1 bg-blue-500 text-white font-medium' type='submit'>Add</button>
+        <button className='rounded-md px-2 py-1 bg-blue-500 text-white font-medium cursor-pointer' type='submit'>Add</button>
     </form>
   )
 }
