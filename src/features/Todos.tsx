@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
-import type { RootState, TodoState } from '../lib/types'
+import type { RootState } from '../lib/types'
 import { removeTodo } from './todoSlice'
-import { useEffect, useState } from 'react'
 
 function Todos() {
 
